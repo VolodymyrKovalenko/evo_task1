@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('postgres://dfujzxbqpvifef:c9608ab1f4ebaf227c53571b7ea2fde71141282ee69299e6158f5d63e2b425b1@ec2-54-243-235-153.compute-1.amazonaws.com:5432/ddi65anbcm45jf')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
@@ -46,4 +46,4 @@ admin.add_view(ModelView(Fridge, db.session))
 admin.add_view(ModelView(Televisor, db.session))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
