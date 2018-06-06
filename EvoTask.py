@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 # app.config.from_pyfile('config.cfg')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get['postgresql-vertical-91489']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('postgresql-vertical-91489')
 db = SQLAlchemy(app)
 
 
